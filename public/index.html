@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LeaveLoop – Leave Management</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- LOGIN / REGISTER -->
+  <section id="auth-view" class="auth">
+    <div class="auth-card">
+      <div class="logo">🌿 LeaveLoop</div>
+      <p class="tag">Simple leave management for small teams</p>
+      <div class="tabs">
+        <button id="tab-login" class="active">Login</button>
+        <button id="tab-register">Register</button>
+      </div>
+      <form id="auth-form">
+        <input id="name" placeholder="Full name" class="hidden" />
+        <input id="email" type="email" placeholder="Email" required />
+        <input id="password" type="password" placeholder="Password (min 6 chars)" required />
+        <button class="btn" id="auth-btn">Login</button>
+      </form>
+      <p class="demo">Demo manager: <b>manager@leaveloop.com</b> / <b>manager123</b></p>
+      <p id="auth-msg" class="msg"></p>
+    </div>
+  </section>
+
+  <!-- DASHBOARD -->
+  <section id="app-view" class="hidden">
+    <header class="topbar">
+      <div class="logo">🌿 LeaveLoop</div>
+      <div class="who"><span id="who"></span><button class="btn ghost" id="logout">Logout</button></div>
+    </header>
+
+    <main class="wrap">
+      <div class="cards" id="cards"></div>
+
+      <div class="grid">
+        <div class="panel" id="apply-panel">
+          <h3>Apply for leave</h3>
+          <form id="leave-form">
+            <select id="leave_type">
+              <option>Casual</option><option>Sick</option><option>Annual</option>
+            </select>
+            <label>From <input type="date" id="start_date" required /></label>
+            <label>To <input type="date" id="end_date" required /></label>
+            <input id="reason" placeholder="Reason" maxlength="255" required />
+            <button class="btn">Submit request</button>
+          </form>
+          <p id="leave-msg" class="msg"></p>
+        </div>
+
+        <div class="panel">
+          <h3 id="list-title">My leave requests</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr id="thead"></tr></thead>
+              <tbody id="tbody"></tbody>
+            </table>
+          </div>
+          <p id="empty" class="empty hidden">No leave requests yet.</p>
+        </div>
+      </div>
+    </main>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
